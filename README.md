@@ -1,7 +1,7 @@
-# Oracle XE 11g on Ubuntu 12.04 using Vagrant
+# Oracle XE 11g on Ubuntu 13.04 using Vagrant
 
 This project enables you to install Oracle 11g XE in a virtual machine running
-Ubuntu 12.04, using [Vagrant] and [Puppet].
+Ubuntu 13.04, using [Vagrant] and [Puppet].
 
 ## Acknowledgements
 
@@ -22,7 +22,7 @@ various contributions.
   of RAM).
 * As Oracle 11g XE is only available for 64-bit machines at the moment, the host
   machine needs to have a 64-bit architecture.
-* I have tested this project on a host machine running Ubuntu 12.04, but other
+* I have tested this project on a host machine running Ubuntu 12.10, but other
   operating systems should also work, as long as they can run Vagrant.
 
 ## Installation
@@ -55,7 +55,7 @@ will get an error
 
     ORA-00845: MEMORY_TARGET not supported on this system
 
-during the configuration stage. In the `Vagrantfile` 512 MB is assigned. Lower
+during the configuration stage. In the `Vagrantfile` 2048 MB is assigned. Lower
 values may also work, as long as (I believe) 2 GB of virtual memory is available
 for Oracle, swap is included in this calculation.
 

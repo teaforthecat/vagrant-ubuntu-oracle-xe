@@ -122,7 +122,8 @@ class oracle::xe {
                   File["/var/lock/subsys/listener"],
                   Exec["set up shm"],
                   Exec["enable swapfile"]],
-      creates => "/etc/default/oracle-xe";
+      creates => "/etc/default/oracle-xe",
+      timeout => 0;
   }
 
   package {

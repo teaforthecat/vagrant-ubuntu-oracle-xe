@@ -6,8 +6,8 @@ Vagrant.configure("2") do |config|
   # options are documented and commented below. For a complete reference,
   # please see the online documentation at vagrantup.com.
 
-  config.vm.box = "precise64"
-  config.vm.box_url = "http://files.vagrantup.com/precise64.box"
+  config.vm.box = "raring-server-amd64"
+  config.vm.box_url = "http://cloud-images.ubuntu.com/vagrant/raring/current/raring-server-cloudimg-amd64-vagrant-disk1.box"
   config.vm.hostname = "oracle"
 
   # Forward Oracle port
@@ -20,7 +20,7 @@ Vagrant.configure("2") do |config|
     vb.customize ["modifyvm", :id,
                   "--name", "oracle",
                   # Oracle claims to need 512MB of memory available minimum
-                  "--memory", "512",
+                  "--memory", "2048",
                   # Enable DNS behind NAT
                   "--natdnshostresolver1", "on"]
   end
