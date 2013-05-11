@@ -20,13 +20,14 @@ Vagrant.configure("2") do |config|
     vb.customize ["modifyvm", :id,
                   "--name", "oracle",
                   # Oracle claims to need 512MB of memory available minimum
-                  "--memory", "512",
+                  "--memory", "1024",
                   # Enable DNS behind NAT
                   "--natdnshostresolver1", "on"]
   end
 
   config.vm.provision :shell, :inline => "echo \"America/New_York\" | sudo tee /etc/timezone && dpkg-reconfigure --frontend noninteractive tzdata"
 
+  # gem install vagrant-vbguest
   config.vbguest.auto_update = false
 
   config.vm.provision :puppet do |puppet|
