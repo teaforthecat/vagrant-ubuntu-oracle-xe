@@ -10,6 +10,8 @@ class db-setup {
   exec {'create-users-and-tbsps':
     command => "sqlplus -L system/manager@localhost:1521/XE @/tmp/create-users-and-tbsps",
     path    => '/u01/app/oracle/product/11.2.0/xe/bin/',
+    timeout => 10,
+    require => Service['oracle-xe'],
   }
 
 }
