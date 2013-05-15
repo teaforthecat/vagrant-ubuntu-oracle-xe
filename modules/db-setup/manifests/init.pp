@@ -10,8 +10,11 @@ class db-setup {
   exec {'create-users-and-tbsps':
     command => "sqlplus -L system/manager@localhost:1521/XE @/tmp/create-users-and-tbsps",
     path    => '/u01/app/oracle/product/11.2.0/xe/bin/',
+    #seams like ORACLE_HOME should be set from File["/etc/profile.d/oracle-env.sh"]???
+    environment => 'ORACLE_HOME=/u01/app/oracle/product/11.2.0/xe',
     timeout => 10,
-    require => Service['oracle-xe'],
+    logoutput => true,
+    subscribe => Service['oracle-xe'],
   }
 
 }
