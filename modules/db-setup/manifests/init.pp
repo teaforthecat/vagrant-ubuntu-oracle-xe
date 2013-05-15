@@ -4,7 +4,7 @@
 class db-setup {
 
   file { '/tmp/create-users-and-tbsps.sql':
-    source => "puppet:///modules/db-setup/local_oracle_tyler.sql";
+    source => "puppet:///modules/db-setup/db-setup.sql";
   }
   ->
   exec {'create-users-and-tbsps':
